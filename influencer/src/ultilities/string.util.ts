@@ -14,6 +14,9 @@ export class StringHelper {
     }
 
     words = Object.keys( frequencies );
-    return words.sort((a,b) => { return frequencies[b] -frequencies[a];}).slice(0,nWord);
+    return words.sort((a,b) => { 
+      if (frequencies[b] == frequencies[a]) return a > b ? -1 : 1;
+      return frequencies[b] - frequencies[a];
+    }).slice(0,nWord);
   }
 }
