@@ -9,6 +9,9 @@ import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import * as path from 'path';
 import {MySequence} from './sequence';
+import { AppComponent } from './app.component';
+import { InfluencerBindings } from './keys';
+import { InfluencerService } from './service';
 
 export class InfluencerApplication extends BootMixin(
   ServiceMixin(RepositoryMixin(RestApplication)),
@@ -26,6 +29,10 @@ export class InfluencerApplication extends BootMixin(
     this.bind(RestExplorerBindings.CONFIG).to({
       path: '/explorer',
     });
+
+    this.bind(InfluencerBindings.SERVICE).toClass(InfluencerService);
+    this.component(AppComponent);
+
     this.component(RestExplorerComponent);
 
     this.projectRoot = __dirname;
