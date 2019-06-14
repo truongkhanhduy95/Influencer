@@ -55,7 +55,7 @@ export default class Influencer extends BaseModel<Influencer> {
   address: string;
 
   @HasMany(()=> FacebookPage)
-  facebook_pages: FacebookPage[]
+  facebook_pages: FacebookPage[];
 
   @Column({
     type: DataType.INTEGER,
