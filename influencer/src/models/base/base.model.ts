@@ -1,9 +1,29 @@
-import {Model} from 'sequelize-typescript';
+import {Model, DataType, UpdatedAt, Column, CreatedAt} from 'sequelize-typescript';
 
 /**
  * @class BaseModel
  */
 export class BaseModel<T extends Model<T>> extends Model<T> {
+
+  @Column({
+    type: DataType.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  })
+  id: number;
+
+  @CreatedAt
+  @Column({
+    type: DataType.DATE,
+  })
+  createdDate: Date;
+
+  @UpdatedAt
+  @Column({
+    type: DataType.DATE,
+  })
+  updatedDate: Date;
+  
   /**
    * @param jsonObject
    */

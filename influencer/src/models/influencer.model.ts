@@ -9,7 +9,7 @@ import {
   Model,
 } from 'sequelize-typescript';
 
-import { BaseModel } from './base.model';
+import { BaseModel } from './base/base.model';
 import { model } from '@loopback/repository';
 
 @model()
@@ -18,26 +18,42 @@ import { model } from '@loopback/repository';
 // })
 export default class Influencer extends BaseModel<Influencer> {
   @Column({
-    type: DataType.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
-  })
-  id: number;
-
-  @Column({
-    type: DataType.TEXT,
+    type: DataType.STRING,
   })
   name: string;
 
-  @CreatedAt
   @Column({
-    type: DataType.DATE,
+    type: DataType.STRING,
   })
-  createdDate: Date;
+  phone: string;
 
-  @UpdatedAt
   @Column({
     type: DataType.DATE,
   })
-  updatedDate: Date;
+  birth_day: Date;
+
+  @Column({
+    type: DataType.STRING,
+  })
+  email: string;
+
+  @Column({
+    type: DataType.STRING,
+  })
+  address: string;
+
+  @Column({
+    type: DataType.INTEGER,
+  })
+  average_interaction: number;
+
+  @Column({
+    type: DataType.string,
+  })
+  bank_number: string;
+
+  @Column({
+    type: DataType.string,
+  })
+  identification_number: string;
 }
