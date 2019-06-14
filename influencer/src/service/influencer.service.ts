@@ -4,6 +4,10 @@ import { StringHelper } from '../ultilities/string.util';
 import { FilterOptions } from '../common/model/filter.schema';
 import { Sequelize } from 'sequelize-typescript';
 import SocialNetwork from '../models/social-network.model';
+import Career from '../models/career.model';
+import Topic from '../models/topic.model';
+import Gender from '../models/gender.model';
+import InfluencerCareer from '../models/influencer-career.model';
 
 export class InfluencerService extends BaseService {
   constructor(
@@ -58,10 +62,14 @@ export class InfluencerService extends BaseService {
         let sn_IDs = SocialNetwork.findAll({where: {name : filter.criteria.social_network}})
         whereOptions.social_network = sn_IDs;
       }
-        
     }
     return Influencer.findAll({
-      where : whereOptions
+      where : whereOptions,
+      include: [
+        {model: Career},
+        {model: SocialNetwork},
+        {model: Topic}, 
+        {model: Gender}]
     });
   }
 

@@ -7,10 +7,20 @@ import {
   ForeignKey,
   BelongsTo,
   Model,
+  BelongsToMany,
+  HasMany,
 } from 'sequelize-typescript';
 
 import { BaseModel } from './base/base.model';
 import { model } from '@loopback/repository';
+import Gender from './gender.model';
+import InfluencerCareer from './influencer-career.model';
+import Career from './career.model';
+import SocialNetwork from './social-network.model';
+import InfluencerSocialNetwork from './influencer-social-network.model';
+import Topic from './topic.model';
+import InfluencerTopic from './influencer-topic.model';
+import FacebookPage from './facebook-page.model';
 
 @model()
 @Table({
@@ -44,6 +54,9 @@ export default class Influencer extends BaseModel<Influencer> {
   })
   address: string;
 
+  @HasMany(()=> FacebookPage)
+  facebook_pages: FacebookPage[]
+
   @Column({
     type: DataType.INTEGER,
   })
@@ -58,4 +71,20 @@ export default class Influencer extends BaseModel<Influencer> {
     type: DataType.STRING,
   })
   identification_number: string;
+
+  @ForeignKey(() => Gender)
+  @Column
+  genderId: number;
+
+  @BelongsTo(() => Gender)
+  gender: Gender;
+
+  @BelongsToMany(() => Career, () => InfluencerCareer)
+  careers: Career[];
+
+  @BelongsToMany(() => SocialNetwork, () => InfluencerSocialNetwork)
+  social_networks: SocialNetwork[];
+
+  @BelongsToMany(() => Topic, () => InfluencerTopic)
+  topics: Topic[];
 }

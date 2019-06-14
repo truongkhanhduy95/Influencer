@@ -16,13 +16,13 @@ export class BaseModel<T extends Model<T>> extends Model<T> {
   @Column({
     type: DataType.DATE,
   })
-  createdDate: Date;
+  created_date: Date;
 
   @UpdatedAt
   @Column({
     type: DataType.DATE,
   })
-  updatedDate: Date;
+  updated_date: Date;
   
   /**
    * @param jsonObject

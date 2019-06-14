@@ -11,6 +11,7 @@ import {
 
 import { BaseModel } from './base/base.model';
 import { model } from '@loopback/repository';
+import Influencer from './influencer.model';
 
 @model()
 @Table({
@@ -28,5 +29,12 @@ export default class FacebookPage extends BaseModel<FacebookPage> {
     type: DataType.STRING,
   })
   description: string;
+
+  @ForeignKey(() => Influencer)
+  @Column
+  influencerId: number;
+
+  @BelongsTo(() => Influencer)
+  influencer: Influencer;
 
 }

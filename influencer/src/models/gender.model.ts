@@ -2,11 +2,7 @@ import {
   Table,
   Column,
   DataType,
-  CreatedAt,
-  UpdatedAt,
-  ForeignKey,
-  BelongsTo,
-  Model,
+
 } from 'sequelize-typescript';
 
 import { BaseModel } from './base/base.model';

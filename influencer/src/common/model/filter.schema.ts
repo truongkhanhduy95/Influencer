@@ -16,6 +16,6 @@ class Criteria {
 }
 
 class Period {
-  public from: Date;
-  public to: Date;
+  public from: number;
+  public to: number;
 }
