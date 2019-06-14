@@ -26,4 +26,12 @@ export class InfluencerController extends BaseController {
   async findAll(): Promise<Response> {
     return await this.response<Influencer[]>(await this.service.getAllInfluencer());
   }
+
+  @get('/mostUsedWords')
+  async mostUsedWords(
+    @param.query.string('paragraph') paragraph: string,
+    @param.query.number('nWord') nWord: number,
+  ): Promise<Response> {
+    return await this.response<string[]>(await this.service.mostUsedWords(paragraph,nWord));
+  }
 }

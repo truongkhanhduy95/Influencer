@@ -14,7 +14,9 @@ import { model } from '@loopback/repository';
 
 @model()
 @Table({
-  tableName: 'Influencer'
+  tableName: 'Influencer',
+  paranoid: true,
+  underscored: true,
 })
 export default class Influencer extends BaseModel<Influencer> {
   @Column({
