@@ -5,6 +5,7 @@ import Influencer from '../models/influencer.model';
 import { Response } from '../common/model/response';
 import { InfluencerBindings } from '../keys';
 import { InfluencerService } from '../service/influencer.service';
+import { FilterOptions } from '../common/model/filter.schema';
 
 export class InfluencerController extends BaseController {
   constructor(
@@ -23,8 +24,10 @@ export class InfluencerController extends BaseController {
       },
     },
   })
-  async findAll(): Promise<Response> {
-    return await this.response<Influencer[]>(await this.service.getAllInfluencer());
+  async findAll(
+    @param.query.object('filter') options?: FilterOptions,
+  ): Promise<Response> {
+    return await this.response<Influencer[]>(await this.service.getAllInfluencer(options));
   }
 
   @get('/mostUsedWords')
