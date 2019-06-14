@@ -1,6 +1,6 @@
 import { Command } from "./command";
 import { inject } from "@loopback/core";
-import Sequelize from "sequelize/types/lib/sequelize";
+import { Sequelize } from "sequelize-typescript";
 
 
 export class SequelizeSync implements Command {

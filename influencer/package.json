@@ -23,7 +23,7 @@
     "prestart": "npm run build",
     "start": "node .",
     "prepublishOnly": "npm run test",
-    "migrate": "npm run clean && npm run build && node ./dist/src/console migrate:sequelize:sync"
+    "migrate": "npm run clean && npm run build && node ./dist/console migrate:sequelize:sync"
   },
   "repository": {
     "type": "git"
@@ -51,6 +51,7 @@
     "@types/bcrypt": "^3.0.0",
     "@types/multer": "^1.3.7",
     "@types/node-cron": "^2.0.1",
+    "@types/sequelize": "^4.28.3",
     "axios": "^0.18.0",
     "bcrypt": "^3.0.4",
     "dotenv": "^6.2.0",

@@ -13,9 +13,11 @@ import Influencer from './influencer.model';
 import SocialNetwork from './social-network.model';
 
 @model()
-// @Table({
-//   tableName: 'InfluencerSocialNetwork'
-// })
+@Table({
+  tableName: 'InfluencerSocialNetwork',
+  paranoid: true,
+  underscored: true,
+})
 export default class InfluencerSocialNetwork extends BaseModel<InfluencerSocialNetwork> {
 
   @ForeignKey(() => Influencer)

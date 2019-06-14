@@ -13,9 +13,11 @@ import { BaseModel } from './base/base.model';
 import { model } from '@loopback/repository';
 
 @model()
-// @Table({
-//   tableName: 'FacebookPage'
-// })
+@Table({
+  tableName: 'FacebookPage',
+  paranoid: true,
+  underscored: true,
+})
 export default class FacebookPage extends BaseModel<FacebookPage> {
   @Column({
     type: DataType.STRING,

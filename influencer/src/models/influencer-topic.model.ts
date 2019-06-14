@@ -16,9 +16,11 @@ import Career from './career.model';
 import Topic from './topic.model';
 
 @model()
-// @Table({
-//   tableName: 'InfluencerTopic'
-// })
+@Table({
+  tableName: 'InfluencerTopic',
+  paranoid: true,
+  underscored: true,
+})
 export default class InfluencerTopic extends BaseModel<InfluencerTopic> {
 
   @ForeignKey(() => Influencer)

@@ -13,9 +13,11 @@ import { BaseModel } from './base/base.model';
 import { model } from '@loopback/repository';
 
 @model()
-// @Table({
-//   tableName: 'Career'
-// })
+@Table({
+  tableName: 'Career',
+  paranoid: true,
+  underscored: true,
+})
 export default class Career extends BaseModel<Career> {
   @Column({
     type: DataType.STRING,

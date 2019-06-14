@@ -13,9 +13,9 @@ import { BaseModel } from './base/base.model';
 import { model } from '@loopback/repository';
 
 @model()
-// @Table({
-//   tableName: 'Influencer'
-// })
+@Table({
+  tableName: 'Influencer'
+})
 export default class Influencer extends BaseModel<Influencer> {
   @Column({
     type: DataType.STRING,
@@ -48,12 +48,12 @@ export default class Influencer extends BaseModel<Influencer> {
   average_interaction: number;
 
   @Column({
-    type: DataType.string,
+    type: DataType.STRING,
   })
   bank_number: string;
 
   @Column({
-    type: DataType.string,
+    type: DataType.STRING,
   })
   identification_number: string;
 }
