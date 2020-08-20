@@ -53,7 +53,7 @@
     "@types/node-cron": "^2.0.1",
     "@types/sequelize": "^4.28.3",
     "axios": "^0.18.0",
-    "bcrypt": "^3.0.4",
+    "bcrypt": "^5.0.0",
     "dotenv": "^6.2.0",
     "fs": "0.0.1-security",
     "isemail": "^3.2.0",
